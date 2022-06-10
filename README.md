@@ -1,18 +1,23 @@
 # Channel Access for Octave
 
-*************************
 
-D. P. Siddons
+D. P. Siddons (siddons@bnl.gov)
+
 Brookhaven National Laboratory
-Upton, NY 11973
-(siddons@bnl.gov)
 
-Eric Norum & Janet Anderson
+Upton, NY 11973
+
+Eric Norum (norume@aps.anl.gov) & Janet Anderson (jba@aps.anl.gov)
+
 Advanced Photon Source
+
 Argonne National Laboratory
+
 9700 South Cass Avenue
+
 Argonne, IL 60439
-(norume@aps.anl.gov, jba@aps.anl.gov)
+ 
+*************************
 
 This package provides simple Channel Access facilities to Octave, an open source Matlab (R) clone. It is based upon the ezca library, and simply calls the C library from a simple C++ wrapper. It does little in the way of error checking yet, and is basically a quick job to get a minimal capability, but someone may find it useful. 
 
@@ -31,7 +36,7 @@ One c++ file (`castuff.cc`) contains wrappers for the following ezca functions:
 - cagetRetryCount
 - casetRetryCount
 
-Since Octave needs to know where to look for each dynamically loaded command, symbolic links are added to force it to look in the castuff.oct generated file. When built, the .oct files and links are copied to the `extensions/lib/<target>` directory. In order for Octave to find these, the default Octave LOADPATH should be modified to add a path to them. This can be done by adding a command such as the the following to a .octtaverc file in your home directory:
+Since Octave needs to know where to look for each dynamically loaded command, symbolic links are added to force it to look in the castuff.oct generated file. When built, the .oct files and links are copied to the `extensions/lib/<target>` directory. In order for Octave to find these, the default Octave `LOADPATH` should be modified to add a path to them. This can be done by adding a command such as the the following to a `.octtaverc` file in your home directory:
 
 ```
 path(LOADPATH,["/usr/local/epics/extensions/lib/" getenv("EPICS_HOST_ARCH")]);
