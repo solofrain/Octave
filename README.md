@@ -39,7 +39,7 @@ One c++ file (`castuff.cc`) contains wrappers for the following ezca functions:
 Since Octave needs to know where to look for each dynamically loaded command, symbolic links are added to force it to look in the castuff.oct generated file. When built, the .oct files and links are copied to the `extensions/lib/<target>` directory. In order for Octave to find these, the default Octave `LOADPATH` should be modified to add a path to them. This can be done by adding a command such as the the following to a `.octtaverc` file in your home directory:
 
 ```
-path(LOADPATH,["/usr/local/epics/extensions/lib/" getenv("EPICS_HOST_ARCH")]);
+addpath ('/usr/lib/epics/lib/linux-x86_64', '-begin');
 ```
 
 Then simply invoking any of the above commands from the Octave shell will load it automatically. On some architectures it will be necessary to have the standard EPICS library directores included in the `LD_LIBRARY_PATH` environment variable.
